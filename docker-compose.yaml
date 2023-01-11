@@ -1,0 +1,21 @@
+services:
+  client:
+    image: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+
+  api:
+    image: api
+    build:
+      context: ./py_server
+      dockerfile: Dockerfile
+    ports:
+      - 9090:9090
+
+
+
